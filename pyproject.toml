@@ -1,0 +1,14 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bayesllm"
+version = "0.1.0"
+description = "Shared library for the LLM-agent / Bayesian-optimisation architectures benchmarked in the paper (PCV, BatchSelect, KernelPrior, safety agents)."
+requires-python = ">=3.10"
+readme = "README.md"
+license = { text = "MIT" }
+
+[tool.setuptools.packages.find]
+where = ["src"]

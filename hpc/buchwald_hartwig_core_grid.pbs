@@ -1,0 +1,26 @@
+#!/bin/bash
+#PBS -l select=1:ncpus=4:mem=32gb:ngpus=1:gpu_type=L40S
+#PBS -l walltime=71:00:00
+#PBS -N dia10_qwen30b_full
+
+cd $HOME/bayesllm-project/experiments
+module load Python/3.13.5-GCCcore-14.3.0
+source venv/bin/activate
+export PATH=$HOME/ollama/bin:$PATH
+
+echo "=== GPU visible en este nodo ==="
+nvidia-smi --query-gpu=name,memory.total,memory.free --format=csv
+
+echo "=== Arrancando Ollama ==="
+ollama serve > ollama_serve_dia10.log 2>&1 &
+OLLAMA_PID=$!
+sleep 10
+
+echo "=== Ejecutando buchwald_hartwig_core_grid.ipynb ==="
+jupyter nbconvert --to notebook --execute --inplace \
+  --ExecutePreprocessor.timeout=-1 \
+  --ExecutePreprocessor.allow_errors=True \
+  buchwald_hartwig_core_grid.ipynb
+
+echo "=== Trabajo terminado ==="
+kill $OLLAMA_PID

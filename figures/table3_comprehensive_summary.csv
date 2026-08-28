@@ -1,0 +1,14 @@
+Benchmark,Acq,Method,n,Mean,Std
+Buchwald Hartwig,EI,GP-BO,20,86.22,3.38
+Buchwald Hartwig,EI,PCV,20,82.95,3.98
+Buchwald Hartwig,EI,BatchSelect,20,85.76,4.27
+Buchwald Hartwig,UCB,GP-BO,20,84.55,3.69
+Buchwald Hartwig,UCB,PCV,20,84.60,3.78
+Buchwald Hartwig,UCB,BatchSelect,20,83.77,3.73
+Direct Arylation,EI,GP-BO,20,78.67,9.06
+Direct Arylation,EI,PCV,20,78.67,9.06
+Direct Arylation,EI,BatchSelect,20,70.77,2.17
+SNAr (safety),EI,GP-BO,7,7757,Viol: 26.7%
+SNAr (safety),EI,SingleAgent,7,6019,Viol: 17.7%
+SNAr (safety),EI,SafeAgent,7,5606,Viol: 4.0%
+SNAr (safety),EI,SafePCV,7,433,Viol: 0.0%

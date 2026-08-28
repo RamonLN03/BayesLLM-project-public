@@ -1,0 +1,27 @@
+#!/bin/bash
+#PBS -l select=1:ncpus=4:mem=32gb:ngpus=1
+#PBS -l walltime=71:00:00
+#PBS -N dia13_qwen30b_full
+
+cd $HOME/bayesllm-project/experiments
+module load Python/3.13.5-GCCcore-14.3.0
+source venv/bin/activate
+export PATH=$HOME/ollama/bin:$PATH
+
+echo "=== GPU visible en este nodo ==="
+nvidia-smi --query-gpu=name,memory.total,memory.free --format=csv
+
+echo "=== Arrancando Ollama ==="
+export OLLAMA_HOST=127.0.0.1:$((11000 + PBS_JOBID % 1000))
+ollama serve > ollama_serve_dia12.log 2>&1 &
+OLLAMA_PID=$!
+sleep 10
+
+echo "=== Ejecutando direct_arylation_benchmark.ipynb ==="
+jupyter nbconvert --to notebook --execute --inplace \
+  --ExecutePreprocessor.timeout=-1 \
+  --ExecutePreprocessor.allow_errors=True \
+  direct_arylation_benchmark.ipynb
+
+echo "=== Trabajo terminado ==="
+kill $OLLAMA_PID

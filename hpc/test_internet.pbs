@@ -1,0 +1,12 @@
+#!/bin/bash
+#PBS -N test_internet
+#PBS -l select=1:ncpus=1:mem=2gb
+#PBS -l walltime=00:02:00
+
+echo "=== Probando GitHub ==="
+curl -sI --max-time 10 https://raw.githubusercontent.com
+echo ""
+echo "=== Probando HuggingFace ==="
+curl -sI --max-time 10 https://huggingface.co
+echo ""
+echo "=== Fin del test ==="

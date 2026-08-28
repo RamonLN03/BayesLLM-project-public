@@ -1,0 +1,5 @@
+model,rol,latencia_media_s,latencia_std_s,tokens_s_media,tokens_s_std,tasa_exito_json,n
+qwen2.5:7b,critic,1.76,0.32,47.47,2.22,100.0,15
+qwen2.5:7b,proposer,2.89,0.35,44.85,1.67,100.0,15
+qwen3:14b,critic,4.29,0.29,8.85,0.64,100.0,15
+qwen3:14b,proposer,12.1,0.93,8.67,0.04,100.0,15

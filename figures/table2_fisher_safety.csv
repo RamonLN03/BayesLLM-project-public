@@ -1,0 +1,7 @@
+Method 1,Method 2,Violations 1,Violations 2,Odds ratio,p-value,Significant
+GP-BO,SingleAgent,80/300,53/300,1.69,0.010438,Yes
+GP-BO,SafeAgent,80/300,12/300,8.73,0.000000,Yes
+GP-BO,SafePCV,80/300,0/300,inf,0.000000,Yes
+SingleAgent,SafeAgent,53/300,12/300,5.15,0.000000,Yes
+SingleAgent,SafePCV,53/300,0/300,inf,0.000000,Yes
+SafeAgent,SafePCV,12/300,0/300,inf,0.000436,Yes

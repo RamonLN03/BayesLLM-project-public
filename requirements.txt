@@ -1,0 +1,37 @@
+# Python 3.13. Install with: pip install -r requirements.txt && pip install -e .
+# (the second command installs the local `bayesllm` package in src/, used by
+# the notebooks in experiments/ -- see the root README.md)
+#
+# Versions are pinned to the environment the reported results were produced
+# in (see VALIDATION.md). Installing unpinned/newer versions may still work
+# but has not been checked against the paper's numbers.
+
+# -- Core scientific stack --------------------------------------------------
+numpy==2.5.0
+pandas==3.0.3
+scipy==1.18.0
+scikit-learn==1.9.0
+matplotlib==3.9.4
+seaborn==0.13.2
+
+# -- Bayesian optimisation ----------------------------------------------
+torch==2.12.1
+gpytorch==1.15.2
+botorch==0.18.1
+
+# -- Cheminformatics ------------------------------------------------------
+rdkit==2026.3.4
+openpyxl==3.1.5          # required by pandas to read the .xlsx benchmark dataset
+
+# -- Local LLM client and RAG grounding ----------------------------------
+ollama==0.6.2             # client for a locally served Ollama model (qwen2.5:7b / qwen3:30b)
+sentence-transformers==5.6.1
+trafilatura==2.2.0        # web scraping for the SNAr safety RAG corpus (experiments/snar_rag_grounding.ipynb)
+requests==2.34.2
+
+# -- Notebook execution ---------------------------------------------------
+jupyterlab==4.6.0
+notebook==7.6.0
+ipykernel==7.3.0
+nbconvert==7.17.1
+nbformat==5.10.4
