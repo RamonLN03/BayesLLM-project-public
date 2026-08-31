@@ -1,6 +1,6 @@
 # Dataset
 
-**`Dreher_and_Doyle_input_data.xlsx`** — the Buchwald-Hartwig C-N
+**`Dreher_and_Doyle_input_data.xlsx`**: the Buchwald-Hartwig C-N
 cross-coupling high-throughput experimentation (HTE) dataset used as the
 primary benchmark in the paper.
 
@@ -11,12 +11,12 @@ primary benchmark in the paper.
 - **Content**: 3,955 measured yields for palladium-catalysed C-N
   cross-coupling reactions, varying 4 categorical components (ligand: 4
   options, additive: 22, base: 3, aryl halide: 15) across multiple plates
-  and cross-validation folds (sheets `FullCV_01`–`FullCV_10`, `Test1`–`Test4`,
+  and cross-validation folds (sheets `FullCV_01`-`FullCV_10`, `Test1`-`Test4`,
   `Plates1-3`, `Plate2_new`).
 - **Used by**: `bayesllm.buchwald_hartwig.BuchwaldHartwigBenchmark`, and
   through it every Buchwald-Hartwig notebook
   (`buchwald_hartwig_core_grid.ipynb`, `kernel_prior_bh.ipynb`,
-  `ucb_vs_ei_bh.ipynb`) — read via `pandas.read_excel`, sheet `FullCV_01`.
+  `ucb_vs_ei_bh.ipynb`), read via `pandas.read_excel`, sheet `FullCV_01`.
   Eight RDKit-computed physicochemical descriptors per component
   (molecular weight, TPSA, MolLogP, H-bond donors/acceptors, rotatable
   bonds, max/min Gasteiger partial charge) are used to cast the categorical
@@ -26,10 +26,11 @@ primary benchmark in the paper.
 
 This file is bundled in the repository (2.1 MB) for convenience. It
 originates from the public data release accompanying the Ahneman et al.
-2018 Science paper; consult that publication/its supplementary materials for
-the dataset's original license terms before reuse outside this repository.
+2018 Science paper; consult that publication and its supplementary materials
+for the dataset's original license terms before reuse outside this
+repository.
 
 The second benchmark used in the paper (Direct Arylation, Perera et al.
-2018) is **not** vendored here — it is fetched at run time directly from a
+2018) is **not** vendored here. It's fetched at run time directly from a
 public CSV mirror (see `bayesllm.direct_arylation.DirectArylationBenchmark`),
 so no local copy is needed.
